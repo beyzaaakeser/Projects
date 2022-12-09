@@ -38,6 +38,7 @@ public class MethodlarConstructorlar {
                 break;
             default:
                 System.out.println("Yanlis secim yaptiniz");
+                saveInfo();
         }
 
     }
@@ -57,6 +58,7 @@ public class MethodlarConstructorlar {
         Integer kimlik = input.nextInt();
         if (kullanici.containsKey(kimlik)){
             kullanici.remove(kimlik);
+            removeInfo();
         }else{
             System.out.println("Girilen kimlik bilgisine ait veri bulunamadi");
         }
@@ -66,22 +68,24 @@ public class MethodlarConstructorlar {
     public static void selectOption(){
         System.out.println("Hos Geldiniz...");
         System.out.println("Sisteme kayit icin 1'i\nSorgulamak icin 2'yi\nVerileri silmek icin 3'u\nSistemden cikis yapmak icin 0'i seciniz.");
-        String secim = input.nextLine();
+        int secim = input.nextInt();
         switch (secim){
-            case "0" :
-                System.out.println("Cikis yapildi");
-                break;
-            case "1":
+            case 1:
                 saveInfo();
                 break;
-            case "2":
+            case 2:
                 getInfo();
                 break;
-            case "3":
+            case 3:
                 removeInfo();
                 break;
+            case 0 :
+                System.out.println("Cikis yapildi");
+                break;
+            default:
+                System.out.println("Hatali secim yaptiniz.");
+                System.out.println("Cikis yapildi");
         }
-
 
     }
 
